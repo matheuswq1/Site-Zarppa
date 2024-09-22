@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecionamento</title>
+    <script>
+        function redirectToStore() {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            // Verifica se é um dispositivo iOS
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                window.location.href = "https://apps.apple.com/app/zarppa/id6499377080"; // URL da Apple Store
+            }
+            // Verifica se é um dispositivo Android
+            else if (/android/i.test(userAgent)) {
+                window.location.href = "https://play.google.com/store/apps/details?id=br.com.devbase.zarppaapp"; // URL do Google Play
+            } else {
+                alert("Seu dispositivo não é compatível.");
+            }
+        }
+    </script>
+</head>
+<body onload="redirectToStore()">
+    <h1>Redirecionando...</h1>
+</body>
+</html>
