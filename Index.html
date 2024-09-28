@@ -12,6 +12,7 @@
             height: 100vh;
             margin: 0;
             flex-direction: column;
+            text-align: center;
         }
         .loader {
             border: 8px solid #f3f3f3; /* Cor da borda */
@@ -36,19 +37,22 @@
 
             // Verifica se é um dispositivo iOS
             if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-                document.body.innerHTML = "<div class='loader'></div><h1>Abrindo a App Store...</h1><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/App_Store_%28iOS%29.svg/512px-App_Store_%28iOS%29.svg.png' alt='App Store'>";
-                window.location.href = "https://apps.apple.com/app/zarppa/id6499377080"; // URL da Apple Store
+                document.body.innerHTML = "<div class='loader'></div><h1>Abrindo a App Store...</h1><img src='https://cdn0.iconfinder.com/data/icons/social-media-2349/69/Asset_40-256.png' alt='App Store'>";
+                setTimeout(() => {
+                    window.location.href = "https://apps.apple.com/app/zarppa/id6499377080"; // URL da Apple Store
+                }, 2000);
             }
             // Verifica se é um dispositivo Android
             else if (/android/i.test(userAgent)) {
-                document.body.innerHTML = "<div class='loader'></div><h1>Abrindo a Google Play...</h1><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Google_Play_Logo.svg/512px-Google_Play_Logo.svg.png' alt='Google Play'>";
-                window.location.href = "https://play.google.com/store/apps/details?id=br.com.devbase.zarppaapp"; // URL do Google Play
+                document.body.innerHTML = "<div class='loader'></div><h1>Abrindo a Google Play...</h1><img src='https://pixabay.com/get/g1208df49c7508729b26e202eb87646a83a5623257a7ba235059132efe86b9c41a9c4fd9ed2f9263535b1e7df043a8a87_640.png' alt='Google Play'>";
+                setTimeout(() => {
+                    window.location.href = "https://play.google.com/store/apps/details?id=br.com.devbase.zarppaapp"; // URL do Google Play
+                }, 2000);
             } 
             // Para outros dispositivos, exibe "Redirecionando..."
             else {
                 document.body.innerHTML = "<div class='loader'></div><h1>Redirecionando...</h1>";
-                // Redireciona para o Google Play após 2 segundos
-                setTimeout(function() {
+                setTimeout(() => {
                     window.location.href = "https://play.google.com/store/apps/details?id=br.com.devbase.zarppaapp"; // URL do Google Play
                 }, 2000);
             }
