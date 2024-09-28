@@ -4,6 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirecionamento</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+        .loader {
+            border: 8px solid #f3f3f3; /* Cor da borda */
+            border-top: 8px solid #3498db; /* Cor do topo */
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite; /* Animação de rotação */
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
     <script>
         function redirectToStore() {
             var userAgent = navigator.userAgent || navigator.vendor || window.opera;
@@ -15,13 +37,16 @@
             // Verifica se é um dispositivo Android
             else if (/android/i.test(userAgent)) {
                 window.location.href = "https://play.google.com/store/apps/details?id=br.com.devbase.zarppaapp"; // URL do Google Play
-            } else {
-                alert("Seu dispositivo não é compatível.");
+            } 
+            // Para outros dispositivos, redireciona para o Google Play
+            else {
+                window.location.href = "https://play.google.com/store/apps/details?id=br.com.devbase.zarppaapp"; // URL do Google Play
             }
         }
     </script>
 </head>
 <body onload="redirectToStore()">
+    <div class="loader"></div>
     <h1>Redirecionando...</h1>
 </body>
 </html>
