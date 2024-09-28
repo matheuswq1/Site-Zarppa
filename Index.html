@@ -32,15 +32,21 @@
 
             // Verifica se é um dispositivo iOS
             if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                document.body.innerHTML = "<div class='loader'></div><h1>Abrindo a App Store...</h1>";
                 window.location.href = "https://apps.apple.com/app/zarppa/id6499377080"; // URL da Apple Store
             }
             // Verifica se é um dispositivo Android
             else if (/android/i.test(userAgent)) {
+                document.body.innerHTML = "<div class='loader'></div><h1>Abrindo a Google Play...</h1>";
                 window.location.href = "https://play.google.com/store/apps/details?id=br.com.devbase.zarppaapp"; // URL do Google Play
             } 
-            // Para outros dispositivos, redireciona para o Google Play
+            // Para outros dispositivos, exibe "Redirecionando..."
             else {
-                window.location.href = "https://play.google.com/store/apps/details?id=br.com.devbase.zarppaapp"; // URL do Google Play
+                document.body.innerHTML = "<div class='loader'></div><h1>Redirecionando...</h1>";
+                // Redireciona para o Google Play após 2 segundos
+                setTimeout(function() {
+                    window.location.href = "https://play.google.com/store/apps/details?id=br.com.devbase.zarppaapp"; // URL do Google Play
+                }, 2000);
             }
         }
     </script>
