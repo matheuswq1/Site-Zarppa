@@ -25,6 +25,10 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+        img {
+            width: 150px; /* Tamanho dos ícones */
+            margin-top: 20px; /* Espaçamento acima do ícone */
+        }
     </style>
     <script>
         function redirectToStore() {
@@ -32,12 +36,12 @@
 
             // Verifica se é um dispositivo iOS
             if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-                document.body.innerHTML = "<div class='loader'></div><h1>Abrindo a App Store...</h1>";
+                document.body.innerHTML = "<div class='loader'></div><h1>Abrindo a App Store...</h1><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/App_Store_%28iOS%29.svg/512px-App_Store_%28iOS%29.svg.png' alt='App Store'>";
                 window.location.href = "https://apps.apple.com/app/zarppa/id6499377080"; // URL da Apple Store
             }
             // Verifica se é um dispositivo Android
             else if (/android/i.test(userAgent)) {
-                document.body.innerHTML = "<div class='loader'></div><h1>Abrindo a Google Play...</h1>";
+                document.body.innerHTML = "<div class='loader'></div><h1>Abrindo a Google Play...</h1><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Google_Play_Logo.svg/512px-Google_Play_Logo.svg.png' alt='Google Play'>";
                 window.location.href = "https://play.google.com/store/apps/details?id=br.com.devbase.zarppaapp"; // URL do Google Play
             } 
             // Para outros dispositivos, exibe "Redirecionando..."
