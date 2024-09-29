@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <title>Baixar o app agora!</title>
     <style>
         body {
@@ -14,7 +13,7 @@
             margin: 0;
             flex-direction: column;
             text-align: center;
-            font-family: 'Roboto', sans-serif; /* Aplicando a fonte */
+            font-family: 'Roboto', sans-serif; /* Adicione sua fonte aqui */
         }
         .loader {
             border: 8px solid #f3f3f3; /* Cor da borda */
@@ -32,21 +31,32 @@
             width: 150px; /* Tamanho dos ícones */
             margin-top: 20px; /* Espaçamento acima do ícone */
         }
+        .float {
+            transition: transform 0.3s ease; /* Suavização do movimento */
+        }
+        .float:hover {
+            transform: translateY(-10px); /* Efeito flutuante */
+        }
     </style>
-       <script>
+</head>
+<body onload="redirectToStore()">
+    <div class="loader"></div>
+    <h1>Redirecionando...</h1>
+
+    <script>
         function redirectToStore() {
             var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
             // Verifica se é um dispositivo iOS
             if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-                document.body.innerHTML = "<div class='loader'></div><h1>Abrindo a App Store...</h1><img src='https://cdn0.iconfinder.com/data/icons/social-media-2349/69/Asset_40-256.png' alt='App Store'>";
+                document.body.innerHTML = "<div class='loader'></div><h1>Abrindo a App Store...</h1><img class='float' src='https://cdn0.iconfinder.com/data/icons/social-media-2349/69/Asset_40-256.png' alt='App Store'>";
                 setTimeout(() => {
                     window.location.href = "https://apps.apple.com/app/zarppa/id6499377080"; // URL da Apple Store
                 }, 2000);
             }
             // Verifica se é um dispositivo Android
             else if (/android/i.test(userAgent)) {
-                document.body.innerHTML = "<div class='loader'></div><h1>Abrindo a Google Play...</h1><img src='https://fnofzzf.stripocdn.email/content/guids/CABINET_6fd74f67c739251b8649805cc131226c690f2ea53f2053822c0ccddd25b24f30/images/103googleplay_play_google_play_apps256_Feu.png' alt='Google Play'>";
+                document.body.innerHTML = "<div class='loader'></div><h1>Abrindo a Google Play...</h1><img class='float' src='https://fnofzzf.stripocdn.email/content/guids/CABINET_6fd74f67c739251b8649805cc131226c690f2ea53f2053822c0ccddd25b24f30/images/103googleplay_play_google_play_apps256_Feu.png' alt='Google Play'>";
                 setTimeout(() => {
                     window.location.href = "https://play.google.com/store/apps/details?id=br.com.devbase.zarppaapp"; // URL do Google Play
                 }, 2000);
@@ -60,15 +70,5 @@
             }
         }
     </script>
-</head>
-<body onload="redirectToStore()">
-    <div class="loader"></div>
-    <h1>Redirecionando...</h1>
-</body>
-</html>
-</head>
-<body onload="redirectToStore()">
-    <div class="loader"></div>
-    <h1>Redirecionando...</h1>
 </body>
 </html>
